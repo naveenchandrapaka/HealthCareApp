@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Services</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .services-section {
+            padding: 20px 0;
+        }
+        .btn-custom, .patient-id-form {
+            margin-bottom: 15px;
+        }
+        .form-small { /* Adjust the size of the input box if needed */
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Patient Services</h2>
+
+        <div class="services-section">
+            <!-- Button to Register a New Patient -->
+            <a href="{{ url_for('register_patient') }}" class="btn btn-primary btn-custom">Register as a Patient</a>
+
+            <!-- Button to Schedule an Appointment -->
+            <a href="{{ url_for('schedule_appointment') }}" class="btn btn-success btn-custom">Schedule Appointment</a>
+
+            <!-- Form to Enter Patient ID and View Details -->
+            <div class="patient-id-form form-small">
+                <h3>Enter Patient ID to View Details</h3>
+                <form action="{{ url_for('redirect_to_patient_details') }}" method="POST">
+                    <div class="form-group">
+                        <label for="patientId">Patient ID:</label>
+                        <input type="number" class="form-control" id="patientId" name="patient_id" placeholder="Enter Patient ID" required>
+                    </div>
+                    <button type="submit" class="btn btn-info">View Patient Details</button>
+                </form>
+            </div>
+
+            <!-- Form to Enter Patient ID and View Bills -->
+            <div class="patient-id-form form-small">
+                <h3>Enter Patient ID to View Bills</h3>
+                <form action="{{ url_for('view_patient_bills') }}" method="GET">
+                    <div class="form-group">
+                        <label for="patientIdBills">Patient ID:</label>
+                        <input type="number" class="form-control" id="patientIdBills" name="patient_id" placeholder="Enter Patient ID" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning">View Bills</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

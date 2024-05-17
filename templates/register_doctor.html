@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Doctor</title>
+</head>
+<body>
+<h2>Register Doctor</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name() }}
+    </p>
+    <p>
+        {{ form.contact_info.label }}<br>
+        {{ form.contact_info() }}
+    </p>
+    <p>
+        {{ form.specialization_id.label }}<br>
+        {{ form.specialization_id() }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+</body>
+</html>

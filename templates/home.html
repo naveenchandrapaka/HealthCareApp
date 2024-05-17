@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+        .features {
+            padding: 20px 0;
+        }
+        .feature-block {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Hospital Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="/" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <a class="dropdown-item" href="{{ url_for('services') }}">View Services Provided</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                <!-- Remaining navbar items -->
+            </ul>
+        </div>
+    </nav>
+    <div class="hero text-center">
+        <h1>Welcome to Our Hospital Management System</h1>
+        <p>Efficiently manage patient care with our integrated system.</p>
+    </div>
+
+
+
+    <div class="container features">
+        <div class="row">
+            <div class="col-md-4 feature-block">
+                <a href="/patient_services" style="text-decoration: none; color: inherit;">
+                    <h4>Patient Management</h4>
+                    <p>Register patients, schedule appointments, and track medical history.</p>
+                </a>
+            </div>
+            <div class="col-md-4 feature-block">
+                <a href="/doctor_dashboard" style="text-decoration: none; color: inherit;">
+                    <h4>Doctor Dashboard</h4>
+                    <p>Access schedules, patient records, and manage appointments.</p>
+                </a>
+            </div>
+            <div class="col-md-4 feature-block">
+                <a href="/admin_services" style="text-decoration: none; color: inherit;">
+                    <h4>Administrative Tools</h4>
+                    <p>Oversee hospital operations, staff, and finances in one place.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center bg-light py-3">
+        <p>Hospital Management System © 2024. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

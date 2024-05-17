@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <style>
+        .hero-section {
+            background: url('hospital-background.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 300px; /* Reduced height to decrease white space */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: #007bff;
+        }
+        .feature-section .row > div {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Hospital Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('register_service') }}">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div>
+            <h1>Welcome to Our Hospital Management System</h1>
+            <p>Providing compassionate care and comprehensive services.</p>
+        </div>
+    </section>
+
+    <section class="container mt-5 feature-section">
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-user-md feature-icon"></i>
+                <h3>Find a Doctor</h3>
+                <p>Search for doctors by specialty, location, or name.</p>
+                <a href="{{ url_for('find_doctor') }}" class="btn btn-primary">Search</a>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-calendar-check feature-icon"></i>
+                <h3>Book an Appointment</h3>
+                <p>Easily schedule and manage appointments online.</p>
+                <a href="{{ url_for('book_appointment') }}" class="btn btn-primary">Book Now</a>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-notes-medical feature-icon"></i>
+                <h3>Access Medical Records</h3>
+                <p>View your medical history and test results securely.</p>
+                <a href="{{ url_for('view_records') }}" class="btn btn-primary">View Records</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

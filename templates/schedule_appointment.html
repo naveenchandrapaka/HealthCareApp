@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Appointment</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Schedule Appointment</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.patient_id.label }} {{ form.patient_id() }}
+    </div>
+    <div class="form-group">
+        {{ form.doctor_id.label }} {{ form.doctor_id() }}
+    </div>
+    <div class="form-group">
+        {{ form.service_type.label }} {{ form.service_type() }}
+    </div>
+    <div class="form-group">
+        {{ form.specialization.label }} {{ form.specialization() }}
+    </div>
+    <div class="form-group">
+        {{ form.date.label }} {{ form.date() }}
+    </div>
+    <div class="form-group">
+        {{ form.start_time.label }} {{ form.start_time() }}
+    </div>
+    <div class="form-group">
+        {{ form.submit() }}
+    </div>
+
+</form>
+
+
+    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // Function to update slots based on the selected doctor and date
+          function updateAvailableSlots() {
+            var doctorId = document.getElementById('doctor_id').value;
+            var date = document.getElementById('date').value;
+
+            if (doctorId && date) {
+              fetch(`/get_available_slots?doctor_id=${doctorId}&date=${date}`)
+                .then(response => response.json())
+                .then(data => {
+                  var startTimeSelect = document.getElementById('start_time');
+                  startTimeSelect.innerHTML = ''; // Clear existing options
+                  data.forEach(function(slot) {
+                    var option = new Option(slot, slot);
+                    startTimeSelect.add(option);
+                  });
+                });
+            }
+          }
+
+          // Add event listeners
+          document.getElementById('doctor_id').addEventListener('change', updateAvailableSlots);
+          document.getElementById('date').addEventListener('change', updateAvailableSlots);
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js" integrity="sha384-ZzWQbP+2Q3LRLty7WP8IfXqhFrH1tVbF+4pDv3M7C0I4zQP/1Dv3I4f3FQ2aoK4b" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8F6FD0T18kZ9J6EDY8uYzGegCuz45H1axOYV/5" crossorigin="anonymous"></script>
+</body>
+</html>

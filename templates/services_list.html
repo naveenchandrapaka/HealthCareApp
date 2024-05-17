@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Catalog</title>
+    <!-- Include Bootstrap for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Service Catalog</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Availability</th>
+                <th>Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{ service.name }}</td>
+                <td>{{ service.specialization }}</td>
+                <td>{{ 'Yes' if service.availability else 'No' }}</td>
+                <td>${{ service.cost_of_service }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No services available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

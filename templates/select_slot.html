@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include your head content here -->
+</head>
+<body>
+    <h2>Select an Available Slot</h2>
+        <form action="{{ url_for('book_appointment') }}" method="post">
+            <label for="patient_id">Patient ID:</label>
+            <input type="number" id="patient_id" name="patient_id" required>
+
+            <input type="hidden" name="doctor_id" value="{{ doctor_id }}">
+            <input type="hidden" name="date" value="{{ date }}">
+            {% for slot in available_slots %}
+                <div>
+                    <input type="radio" id="slot{{ loop.index }}" name="start_time" value="{{ slot.strftime('%H:%M:%S') }}" required>
+                    <label for="slot{{ loop.index }}">{{ slot.strftime('%I:%M %p') }}</label>
+                </div>
+            {% endfor %}
+            <button type="submit">Book Appointment</button>
+        </form>
+
+</body>
+</html>

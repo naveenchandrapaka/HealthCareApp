@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Bills</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Bills for Patient ID: {{ patient_id }}</h2>
+    {% if bills %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Cost of Services</th>
+                    <th>Cost of Tests</th>
+                    <th>Total Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for bill in bills %}
+                <tr>
+                    <td>{{ bill.description or 'N/A' }}</td>
+                    <td>${{ bill.cost_of_services }}</td>
+                    <td>${{ bill.cost_of_tests }}</td>
+                    <td>${{ bill.total_cost }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No bills found for this patient.</p>
+    {% endif %}
+</div>
+</body>
+</html>

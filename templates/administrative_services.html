@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrative Services</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .services-section {
+            padding: 20px 0;
+        }
+        .btn-custom {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Administrative Services</h2>
+
+        <div class="services-section">
+            <h3>Pharmacy Management</h3>
+            <!-- Button to Manage Inventory -->
+            <a href="{{ url_for('manage_inventory') }}" class="btn btn-info btn-custom">Manage Inventory</a>
+            <!-- Button to Manage Prescriptions -->
+            <a href="{{ url_for('manage_prescriptions') }}" class="btn btn-info btn-custom">Manage Prescriptions</a>
+        </div>
+
+        <div class="services-section">
+            <h3>Laboratory Management</h3>
+            <!-- Button to Schedule Tests -->
+            <a href="{{ url_for('schedule_tests') }}" class="btn btn-info btn-custom">Schedule Tests</a>
+            <!-- Button to Record Test Results -->
+            <a href="{{ url_for('record_test_results') }}" class="btn btn-info btn-custom">Record Test Results</a>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

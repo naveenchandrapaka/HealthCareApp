@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Appointment</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Schedule Appointment</h2>
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.patient_id.label(class="form-control-label") }}
+                {{ form.patient_id(class="form-control") }}
+                {% if form.patient_id.errors %}
+                    {% for error in form.patient_id.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.doctor_id.label(class="form-control-label") }}
+                {{ form.doctor_id(class="form-control") }}
+                {% if form.doctor_id.errors %}
+                    {% for error in form.doctor_id.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.service_id.label(class="form-control-label") }}
+                {{ form.service_id(class="form-control") }}
+                {% if form.service_id.errors %}
+                    {% for error in form.service_id.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.appointment_datetime.label(class="form-control-label") }}
+                {{ form.appointment_datetime(class="form-control") }}
+                {% if form.appointment_datetime.errors %}
+                    {% for error in form.appointment_datetime.errors %}
+                        <span style="color: red;">[{{ error }}]</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Schedule Appointment</button>
+            </div>
+        </form>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js" integrity="sha384-ZzWQbP+2Q3LRLty7WP8IfXqhFrH1tVbF+4pDv3M7C0I4zQP/1Dv3I4f3FQ2aoK4b" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8F6FD0T18kZ9J6EDY8uYzGegCuz45H1axOYV/5" crossorigin="anonymous"></script>
+</body>
+</html>

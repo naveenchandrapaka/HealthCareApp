@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Service</title>
+</head>
+<body>
+<h2>Register New Service</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name() }}
+    </p>
+    <p>
+        {{ form.specialization.label }}<br>
+        {{ form.specialization() }}
+    </p>
+    <p>
+        {{ form.availability.label }}<br>
+        {{ form.availability() }}
+    </p>
+    <p>
+        {{ form.cost_of_service.label }}<br>
+        {{ form.cost_of_service() }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+</body>
+</html>

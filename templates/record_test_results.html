@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Test Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Record Test Results</h2>
+        <form action="{{ url_for('record_test_results') }}" method="post">
+            <div class="form-group">
+                <label for="testId">Test ID</label>
+                <input type="number" class="form-control" id="testId" name="test_id" required>
+            </div>
+            <div class="form-group">
+                <label for="patientId">Patient ID</label>
+                <input type="number" class="form-control" id="patientId" name="patient_id" required>
+            </div>
+            <!-- Inside the <form> tag -->
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select class="form-control" id="department" name="department" required>
+                    {% for department in departments %}
+                    <option value="{{ department.id }}">{{ department.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dateOfTesting">Date of Testing</label>
+                <input type="date" class="form-control" id="dateOfTesting" name="date_of_testing" required>
+            </div>
+            <div class="form-group">
+                <label for="dateOfResult">Date of Result</label>
+                <input type="date" class="form-control" id="dateOfResult" name="date_of_result" required>
+            </div>
+            <div class="form-group">
+                <label for="results">Results</label>
+                <textarea class="form-control" id="results" name="results" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Record Results</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-color: #f5f5f5;
+            padding: 20px 0;
+            border-bottom: 1px solid #eaeaea;
+        }
+        .services-section {
+            padding: 40px 0;
+        }
+        .btn-custom, .patient-id-form {
+            margin-bottom: 15px;
+        }
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align items to the start of the container */
+        }
+        .form-small { /* Make the input box smaller */
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Hospital Management</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="hero-section text-center">
+    <h1>Welcome to Our Hospital Management System</h1>
+    <p>Comprehensive care, leading technology, and compassionate staff.</p>
+</div>
+
+<div class="services-section">
+    <div class="container">
+        <h2>Patient Services</h2>
+        <div class="services-container"> <!-- Align items to the left -->
+            <a href="{{ url_for('register_patient') }}" class="btn btn-primary btn-custom">Register as a Patient</a>
+            <a href="{{ url_for('schedule_appointment') }}" class="btn btn-success btn-custom">Schedule Appointment</a>
+            <div class="patient-id-form form-small">
+                <h3>Enter Patient ID to View Details</h3>
+                <form action="{{ url_for('redirect_to_patient_details') }}" method="POST">
+                    <div class="form-group">
+                        <label for="patientId">Patient ID:</label>
+                        <input type="number" class="form-control" id="patientId" name="patient_id" placeholder="Enter Patient ID" required>
+                    </div>
+                    <button type="submit" class="btn btn-info">View Patient Details</button>
+                </form>
+            </div>
+            <div class="services-container">
+            <!-- Existing buttons and forms -->
+            <div class="patient-id-form form-small">
+                <h3>Enter Patient ID to View Bills</h3>
+                <form action="{{ url_for('view_patient_bills') }}" method="GET">
+                    <div class="form-group">
+                        <label for="patientIdBills">Patient ID:</label>
+                        <input type="number" class="form-control" id="patientIdBills" name="patient_id" placeholder="Enter Patient ID" required>
+                    </div>
+                    <button type="submit" class="btn btn-warning">View Bills</button>
+                </form>
+            </div>
+        </div>
+            <!-- Existing Patient Services Section -->
+
+        </div>
+        <h2>Doctor Services</h2>
+        <div class="services-container"> <!-- Align items to the left -->
+            <a href="{{ url_for('register_doctor') }}" class="btn btn-primary btn-custom">Register as a Doctor</a>
+<!--            <a href="{{ url_for('schedule_appointment') }}" class="btn btn-success btn-custom">Schedule Appointment</a>-->
+            <div class="patient-id-form form-small">
+                <h3>Enter Doctor ID to View Schedule</h3>
+                <form action="{{ url_for('redirect_to_doctor_schedule') }}" method="POST">
+                    <div class="form-group">
+                        <label for="doctorId">Doctor ID:</label>
+                        <input type="number" class="form-control" id="doctorId" name="doctor_id" placeholder="Enter Doctor ID" required>
+                    </div>
+                    <button type="submit" class="btn btn-info">View Schedule</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- New General Services Section for Viewing Service Catalog -->
+        <div class="services-section">
+            <div class="container">
+                <h2>General Services</h2>
+                <div class="services-container">
+                    <a href="{{ url_for('services') }}" class="btn btn-secondary btn-custom">View Service Catalog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
