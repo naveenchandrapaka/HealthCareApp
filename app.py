@@ -32,7 +32,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = sa.engine.URL.create(
     username=getenv("DB_USERNAME", "hmsadmin"),
     password=getenv("DB_PASSWORD", "Chand@99"),
     host=getenv("DB_HOST", "hmspgsql.postgres.database.azure.com"),
-    database=getenv("DB_DATABASE", "hms_azure_psql_server"),
+    database=getenv("DB_DATABASE", "hmsdb"),
     port=5432,
     query={"sslmode": "require"}
 )
